@@ -13,6 +13,8 @@ namespace Prvni.Controllers
         [HttpPost]
         public ActionResult Index(Kalkulacka kalkulacka)
         {
+            Generator generator = new Generator();
+            ViewBag.Cislo = generator.VratCislo();
             if (ModelState.IsValid)
             {
                 kalkulacka.Vypocitej();
@@ -23,8 +25,8 @@ namespace Prvni.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //Generator generator = new Generator();
-            //ViewBag.Cislo = generator.VratCislo();
+            Generator generator = new Generator();
+            ViewBag.Cislo = generator.VratCislo();
             Kalkulacka kalkulacka = new Kalkulacka();
             return View(kalkulacka);
             
